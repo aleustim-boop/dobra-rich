@@ -196,6 +196,8 @@ main { min-height: 40vh; }
 .nav__col { color: var(--accent-ink); }
 .nav__mhead, .nav__mcats, .nav__mfoot, .search--mobile { display: none; }
 .hdr__promo { margin-left: auto; font-size: 13px; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+/* 11.11.2026: строка «доставка + часы» не помещалась рядом с меню и налезала на него — скрыта (часы есть у телефона в шапке) */
+.hdr__promo { display: none; }
 .hdr__promo .ico { width: 16px; height: 16px; color: var(--accent); }
 
 /* ---------- Список категорий (колонка и выпадающее меню) ---------- */
@@ -719,6 +721,21 @@ main { min-height: 40vh; }
   .ftr__grid { grid-template-columns: 1fr 1fr; }
   .slide__text { padding: 30px 30px 50px; }
   .slide__text h1, .slide__text h2 { font-size: 28px; }
+}
+
+@media (max-width: 1060px) {
+  /* 11.11.2026: на ширинах 901–1060 меню не помещалось и вылезало за экран — уменьшаем отступы и шрифт */
+  .nav { gap: 0; }
+  .nav > a { padding: 14px 6px; font-size: 13px; }
+}
+
+@media (max-width: 960px) {
+  /* 11.11.2026: у «Добра Річ» пунктов меню больше, чем у других тем, — на 901–960 ужимаем ещё и блок «Каталог товарів» */
+  .hdr__row-in { gap: 12px; }
+  .catdrop { width: 200px; }
+  /* 11.11.2026: в каталоге на 901–960 карточки 3 в ряд слишком узкие — кнопка «Купити» выходила за карточку; делаем 2 колонки */
+  .grid--cat { grid-template-columns: repeat(2, 1fr); }
+  .nav > a { padding: 14px 4px; font-size: 12.5px; }
 }
 
 @media (max-width: 900px) {
